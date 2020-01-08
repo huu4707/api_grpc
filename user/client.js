@@ -17,6 +17,9 @@ function main() {
   client.list({}, function(err, response) {
     console.log('response', response)
   });
+  client.checkUserExist({id:3}, function(error, response) {
+    console.log('response', response)
+  });
 }
 
 main();

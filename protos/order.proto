@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package order;
+
+service OrderService {
+  rpc insertOrder (ParamInsert) returns (orderInfo) {}
+  rpc listOrder (Empty) returns (orderList) {}
+}
+
+message Empty { }
+message ParamInsert {
+  string id = 1;
+  string userId = 2;
+  string amount = 3;
+  string qty = 4;
+}
+
+message Order {
+    string id = 1;
+    string userId = 2;
+    string amount = 3;
+    string qty = 4;
+}
+
+message orderInfo {
+  bool status = 1;
+  string message = 2;
+}
+
+message orderList {
+    repeated Order order = 1;
+}

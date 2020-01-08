@@ -1,28 +1,28 @@
 syntax = "proto3";
 
-option java_multiple_files = true;
-option java_package = "io.grpc.examples.user";
-option java_outer_classname = "UserProto";
-option objc_class_prefix = "HLW";
-
 package user;
 
-// The greeting service definition.
 service UserService {
-  // Sends a greeting
   rpc List (Empty) returns (userLits) {}
+  rpc checkUserExist(ParamCheck) returns (reponseMessage) { }
+}
+
+message ParamCheck {
+  string id = 1;
 }
 
 message Empty { }
 
-// The request message containing the user's name.
 message User {
   string id = 1;
   string name = 2;
 }
 
-// The response message containing the greetings
 message userLits {
     repeated User users = 1;
-    // string message = 1;
+}
+
+message reponseMessage {
+  bool status = 1;
+  string message = 2;
 }
